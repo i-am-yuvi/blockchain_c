@@ -1,25 +1,29 @@
+#ifndef TESTCHAIN_BLOCK_H
+#define TESTCHAIN_BLOCK_H
+
 #include <cstdint>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
 class Block
 {
-
 public:
-     string prevHash;
-     Block(u_int32_t _nIndexIn, const string &sDataIn);
+     string sHash;
+     string sPrevHash;
 
-     string Gethash();
+     Block(uint32_t nIndexIn, const string &sDataIn);
 
      void MineBlock(uint32_t nDifficulty);
 
 private:
-     uint32_t nIndex;
-     int64_t _nNonce;
+     uint32_t _nIndex;
+     uint32_t _nNonce;
      string _sData;
-     string _sHash;
      time_t _tTime;
 
      string _CalculateHash() const;
 };
+
+#endif 
